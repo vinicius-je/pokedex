@@ -1,10 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 html{
     background-color: #262626;
     color: white;
+}
+
+h3{
+    font-family: 'Bungee', cursive;
+}
+
+a{
+    text-decoration: none;
+    color: #B3B3B3;
+}
+
+h3{
+    font-family: 'Bungee', cursive;
 }
 
 .logo{

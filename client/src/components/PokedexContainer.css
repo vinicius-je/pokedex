@@ -1,0 +1,41 @@
+.pokedex_container{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.pagination_container{
+    margin: 30px 0;
+}
+
+.pagination_box{
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    height: 40px;
+    margin: auto;
+}
+
+.pagination_box button{
+    width: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.25), 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transform: scale(0.9);
+    transition: transform .2s;
+}
+
+.pagination_box button:hover{
+    transform: scale(1);
+}
+
+.pagination_box h3{
+    display: flex;
+    align-items: center;
+}
+
+.pagination_box i{
+    color: #B3B3B3;
+}
