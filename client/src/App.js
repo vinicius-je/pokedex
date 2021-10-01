@@ -17,6 +17,7 @@ function App() {
   }, [pokemon])
   return (
     <div className="App">
+      <div className="logo"></div>
       <SearchBar getPokemonByInput={getPokemonByInput}></SearchBar>
     </div>
   );
