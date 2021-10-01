@@ -1,10 +1,11 @@
 
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SearchBar from './components/SearchBar';
-import PokedexContainer from './components/PokedexContainer'
-import { getPokemonData } from './pokemonApi'
-import { BrowserRouter as Router } from 'react-router-dom'
+import PokedexContainer from './components/PokedexContainer';
+import PokemonInfo from './components/PokemonInfo'
+import { getPokemonData } from './pokemonApi';
 
 function App() {
     const [pokemon, setPokemon] = useState([]);
@@ -54,8 +55,15 @@ function App() {
     <div className="App">
         <Router>
             <div className="logo"></div>
-            <SearchBar getPokemonByInput={getPokemonByInput}></SearchBar>
-            <PokedexContainer pokemon={pokemon} onNextPage={loadNextPage} onPreviousPage={loadPreviousPage} pages={total} currentPage={numberOfPage}/>
+            <Switch>
+                <Route exact path="/">
+                    <SearchBar getPokemonByInput={getPokemonByInput}></SearchBar>
+                    <PokedexContainer pokemon={pokemon} onNextPage={loadNextPage} onPreviousPage={loadPreviousPage} pages={total} currentPage={numberOfPage}/>
+                </Route>
+                <Route path="/:id">
+                    <PokemonInfo></PokemonInfo>
+                </Route>
+            </Switch>
         </Router>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react'
 import './PokemonCard.css'
 import { Link } from 'react-router-dom'
 
-function PokemonCard(props){
+export default function PokemonCard(props){
     const id = props.pokemon.id
     const name = props.pokemon.name
     const types = props.pokemon.types
@@ -22,5 +22,3 @@ function PokemonCard(props){
         </div>
     )
 }
-
-export default PokemonCard;

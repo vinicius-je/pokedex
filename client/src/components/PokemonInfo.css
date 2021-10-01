@@ -1,0 +1,118 @@
+.pokemon_data_wrapper{
+    text-align: center;
+    margin: 50px 0;
+}
+
+.pokemon_data_container{
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 20px 0;
+}
+
+.pokemon_box1, .pokemon_box2{
+    width: 50%;
+}
+
+.pokemon_box1 img{
+    width: 280px;
+    height: 250px;
+}
+
+.pokemon_box1 h3{
+    margin: 20px 0;
+    font-family: 'Bungee', cursive;
+    line-height: 30px;
+}
+
+.pokemonbox2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.attributes_container{
+    display: flex;
+    justify-content: center;
+}
+
+.attributes_container div{
+    margin: 0 10px;
+}
+
+.evolution_container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.25), 1px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.circle img{
+    width: 65px;
+    height: 65px;
+}
+
+.stats_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.stats_container div{
+    width: 33%;
+    margin-bottom: 10px;
+}
+
+p{
+    font-weight: bold;
+}
+
+@media screen and (max-width: 810px){
+    .pokemon_data_container{
+        width: 95%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pokemon_box1, .pokemon_box2{
+        margin: 20px 0;
+        min-width: 400px;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .pokemon_data_container{
+        padding: 0;
+    }
+
+    .pokemon_box1 img{
+        width: 200px;
+    }
+    .pokemon_box1, .pokemon_box2{
+        margin: 20px 0;
+        min-width: 280px;
+    }
+
+    .circle{
+        width: 80px;
+        height: 80px;
+    }
+
+    .circle img{
+        width: 60px;
+        height: 60px;
+    }
+}
