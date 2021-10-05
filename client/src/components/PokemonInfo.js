@@ -119,8 +119,8 @@ export default function PokemonInfo(){
                     </div>
                     </div>
                 </div>
-            : 'loading'}
-            <button></button>
+            : <h3>'loading'</h3>}
+            <Link to='/'><button className="back-btn">Back</button></Link>
         </div>
     )
 }
