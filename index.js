@@ -1,10 +1,19 @@
 const express = require('express');
 const app = express();
+const path = require('path')
 
-const PORT = 3000
+const PORT = 3000;
 
-app.get('/', (req, res) => {
-    res.send('test')
+// make the file accessible to nodejs
+app.use(express.static(path.join(__dirname, 'client/build')))
+
+// send the file to any route
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build/index.html', (error) => {
+        if(error){
+            res.status(500).send(error)
+        }
+    }))
 })
 
 app.listen(PORT, () => {
