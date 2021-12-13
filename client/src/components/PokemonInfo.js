@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch } from 'react-router-dom';
 import { getPokemonData } from '../pokemonApi';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './PokemonInfo.css'
 
 export default function PokemonInfo(){
 
     const URL = 'https://pokeapi.co/api/v2/pokemon/'
-    const match = useRouteMatch();
+
+    const params = useParams()
 
     const [pokemon, setPokemon] = useState();
     const [pokemonChain, setPokemonChain] = useState([]);
@@ -15,7 +15,7 @@ export default function PokemonInfo(){
     const [reloadPage, setReloadPage] = useState(false);
 
     async function getPokemon(){
-        let pokemon_data = await getPokemonData(`${URL}${match.params.id}`);
+        let pokemon_data = await getPokemonData(`${URL}${params.id}`);
         setPokemon(pokemon_data);
 
         let pokemon_species = await getPokemonData(pokemon_data.species.url);
@@ -82,7 +82,7 @@ export default function PokemonInfo(){
                         <div className="evolution_container">
                             {pokemonChain !== undefined ? 
                                 pokemonChain.map((img, index) => 
-                                <Link to={pokemonLink[index]}>
+                                <Link to={`/${pokemonLink[index]}`}>
                                     <div className="circle">
                                         <img src={img} alt={pokemonLink[index]} onClick={() => setReloadPage(true)}></img>
                                     </div>
