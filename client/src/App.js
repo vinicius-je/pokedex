@@ -13,8 +13,12 @@ function App() {
     const [total, setTotalPages] = useState();
     // get pokemon by search value in SerachBar   
     async function getPokemonByInput(pokemon){
-        let pokemon_data = await getPokemonData(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-        setPokemon([pokemon_data])
+        try {
+            let pokemon_data = await getPokemonData(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+            setPokemon([pokemon_data])
+        } catch (error) {
+            setPokemon([])   
+        }
     }
     // get pokemon list per page
     async function getPokemonsByPage(page){

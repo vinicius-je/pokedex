@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPokemonData } from '../../pokemonApi';
 import { Link, useParams } from 'react-router-dom';
 import './index.css'
+import BackBtn from '../../components/BackBtn';
 
 export default function PokemonInfo(){
 
@@ -120,7 +121,7 @@ export default function PokemonInfo(){
                     </div>
                 </div>
             : <h3>'loading'</h3>}
-            <Link to='/'><button className="back-btn">Back</button></Link>
+            <Link to='/'><BackBtn/></Link>
         </div>
     )
 }
