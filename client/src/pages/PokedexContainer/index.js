@@ -1,8 +1,7 @@
-
 import React from 'react'
-import PokemonCard from './PokemonCard'
-import './PokedexContainer.css'
-import SearchBar from './SearchBar'
+import PokemonCard from '../../components/PokemonCard'
+import SearchBar from '../../components/SearchBar'
+import './index.css'
 
 export default function PokedexContainer(props){
     const {pokemon, onNextPage, onPreviousPage, currentPage, pages} = props

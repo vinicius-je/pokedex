@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getPokemonData } from '../pokemonApi';
+import { getPokemonData } from '../../pokemonApi';
 import { Link, useParams } from 'react-router-dom';
-import './PokemonInfo.css'
+import './index.css'
 
 export default function PokemonInfo(){
 

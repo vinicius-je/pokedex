@@ -1,9 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import PokedexContainer from './components/PokedexContainer';
-import PokemonInfo from './components/PokemonInfo'
+import PokedexContainer from './pages/PokedexContainer/index';
+import PokemonInfo from './pages/PokemonInfo/index'
 import { getPokemonData } from './pokemonApi';
 
 function App() {
