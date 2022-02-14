@@ -41,11 +41,13 @@ function App() {
     function loadNextPage(){
         getPokemonsByPage(nextPage)
         setNumberOfPage(num => num === 54 ? num = 54 : num + 1)
+        window.scrollTo(0, 0)
     }
 
     function loadPreviousPage(){
         getPokemonsByPage(previousPage)
         setNumberOfPage(num => num === 1 ? num = 1 : num - 1)
+        window.scrollTo(0, 0)
     }
 
     useEffect(() => {
