@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import PokedexContainer from './pages/PokedexContainer/index';
-import PokemonInfo from './pages/PokemonInfo/index'
 import { getPokemonData } from './pokemonApi';
 
 function App() {
@@ -55,14 +54,10 @@ function App() {
 
   return (
     <div className="App">
-        <BrowserRouter>
-            <div className="logo"></div>
-            <Routes>
-                <Route path="/" element={
-                <PokedexContainer getPokemonByInput={getPokemonByInput} pokemon={pokemon} onNextPage={loadNextPage} onPreviousPage={loadPreviousPage} pages={total} currentPage={numberOfPage}/>}/>
-                <Route path="/:id" element={<PokemonInfo/>}/>
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route path="/" element={
+            <PokedexContainer getPokemonByInput={getPokemonByInput} pokemon={pokemon} onNextPage={loadNextPage} onPreviousPage={loadPreviousPage} pages={total} currentPage={numberOfPage}/>}/>
+        </Routes>
     </div>
   );
 }

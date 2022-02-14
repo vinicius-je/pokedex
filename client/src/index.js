@@ -1,13 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
+import PokemonInfo from './pages/PokemonInfo/index'
 
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const rootElement = document.getElementById("root");
+render(
+  <BrowserRouter>
+    <div className="logo"></div>
+    <Routes>
+      <Route path="/" element={<App/>}/>
+      <Route path="/:id" element={<PokemonInfo/>}/>
+    </Routes>
+  </BrowserRouter>,
+  rootElement
 );
-
 
