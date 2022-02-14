@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { PageConext } from './context/PageContext';
 import PokedexContainer from './pages/PokedexContainer/index';
 import { getPokemonData } from './pokemonApi';
 
 function App() {
     const [pokemon, setPokemon] = useState([]);
-    const [nextPage, setNextPage] = useState('https://pokeapi.co/api/v2/pokemon?limit=21&offset=0');
     const [previousPage, setPreviousPage] = useState(); 
-    const [numberOfPage, setNumberOfPage] = useState(1);
     const [total, setTotalPages] = useState();
+
+    const [currentPage, setCurrentPage, nextPage, setNextPage, page, setPage] = useContext(PageConext)
+
     // get pokemon by search value in SerachBar   
     async function getPokemonByInput(pokemon){
         try {
@@ -39,26 +41,28 @@ function App() {
     }
 
     function loadNextPage(){
-        getPokemonsByPage(nextPage)
-        setNumberOfPage(num => num === 54 ? num = 54 : num + 1)
+        setCurrentPage(nextPage || currentPage)
+        getPokemonsByPage(nextPage || currentPage)
+        setPage(num => num === 54 ? num = 54 : num + 1)
         window.scrollTo(0, 0)
     }
 
     function loadPreviousPage(){
-        getPokemonsByPage(previousPage)
-        setNumberOfPage(num => num === 1 ? num = 1 : num - 1)
+        setCurrentPage(previousPage || currentPage)
+        getPokemonsByPage(previousPage || currentPage)
+        setPage(num => num === 1 ? num = 1 : num - 1)
         window.scrollTo(0, 0)
     }
 
     useEffect(() => {
-        getPokemonsByPage(nextPage)
+        getPokemonsByPage(currentPage)
     }, [])
 
   return (
     <div className="App">
         <Routes>
             <Route path="/" element={
-            <PokedexContainer getPokemonByInput={getPokemonByInput} pokemon={pokemon} onNextPage={loadNextPage} onPreviousPage={loadPreviousPage} pages={total} currentPage={numberOfPage}/>}/>
+            <PokedexContainer getPokemonByInput={getPokemonByInput} pokemon={pokemon} onNextPage={loadNextPage} onPreviousPage={loadPreviousPage} pages={total} currentPage={page}/>}/>
         </Routes>
     </div>
   );
