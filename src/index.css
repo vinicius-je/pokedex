@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.App {
-  text-align: center;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
@@ -15,6 +11,14 @@ html{
     background-color: #262626;
     color: #B3B3B3;
     scroll-behavior: smooth;
+}
+
+.logo{
+    background-image: url('./assets/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    margin: 20px 0;
 }
 
 h3{
@@ -29,14 +33,6 @@ a{
 
 h3{
     font-family: 'Bungee', cursive;
-}
-
-.logo{
-    background-image: url('./assets/logo.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100px;
-    margin: 20px 0;
 }
 
 button, input{

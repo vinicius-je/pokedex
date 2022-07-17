@@ -1,9 +1,14 @@
 .pokedex_container{
+    text-align: center;
+}
+
+.pokedex_card_container{
     max-width: 1000px;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .pagination_container{

@@ -1,8 +1,8 @@
 import React from 'react'
 import './BackBtn.css'
 
-export default function BackBtn(){
+export default function BackBtn({ onClick }){
     return(
-        <button className="back-btn">Back</button>
+        <button onClick={onClick} className="back-btn">Back</button>
     )
 }

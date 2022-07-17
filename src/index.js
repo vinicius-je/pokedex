@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
 import { PageProvider } from './context/PageContext';
-import PokemonInfo from './pages/PokemonInfo/index'
+import PokedexContainer from './pages/PokedexContainer';
+import PokemonInfo from './pages/PokemonInfo/index';
+import './index.css';
 
 const rootElement = document.getElementById("root");
 render(
@@ -11,7 +12,7 @@ render(
   <BrowserRouter>
     <div className="logo"></div>
     <Routes>
-        <Route path="/" element={<App/>}/>
+        <Route path="/" element={<PokedexContainer/>}/>
         <Route path="/:id" element={<PokemonInfo/>}/>
     </Routes>
   </BrowserRouter>

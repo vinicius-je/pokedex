@@ -3,10 +3,10 @@ import './PokemonCard.css'
 import { Link } from 'react-router-dom'
 
 export default function PokemonCard(props){
-    const id = props.pokemon.id
-    const name = props.pokemon.name
-    const types = props.pokemon.types
-    const img = props.pokemon.sprites.other.dream_world.front_default
+    const id = props.pokemon.id;
+    const name = props.pokemon.name;
+    const types = props.pokemon.types;
+    const img = props.pokemon.sprites.other.dream_world.front_default;
     return(
         <div className="card">
             <Link to={name}>

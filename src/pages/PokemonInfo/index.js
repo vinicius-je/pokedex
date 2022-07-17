@@ -26,37 +26,36 @@ export default function PokemonInfo(){
         // get the each pokemon from evolution chain
         if(pokemon_chain !== null){
             if(pokemon_chain.chain.species.name !== undefined){
-                pokemon_name.push(pokemon_chain.chain.species.name)
+                pokemon_name.push(pokemon_chain.chain.species.name);
             }
             if(pokemon_chain.chain.evolves_to[0] !== undefined){
-                pokemon_name.push(pokemon_chain.chain.evolves_to[0].species.name)
+                pokemon_name.push(pokemon_chain.chain.evolves_to[0].species.name);
             }
             if(pokemon_chain.chain.evolves_to[0].evolves_to[0] !== undefined){
-                pokemon_name.push(pokemon_chain.chain.evolves_to[0].evolves_to[0].species.name)
+                pokemon_name.push(pokemon_chain.chain.evolves_to[0].evolves_to[0].species.name);
             }
             setPokemonLink(pokemon_name)
             // reset pokemon chain on load page
             if(pokemonChain !== []){
-                setPokemonChain([])
+                setPokemonChain([]);
             }
             // get the image of all pokemons in the evolution chain
             pokemon_name.forEach( async (pokemon_name) => {
                 let pokemon_data = await getPokemonData(`${URL}${pokemon_name}`);
                 let pokemon_img = pokemon_data.sprites.other.dream_world.front_default;
-                setPokemonChain(item => [...item, pokemon_img])
+                setPokemonChain(item => [...item, pokemon_img]);
             })
         }
     }  
     
     useEffect(() => {
-        getPokemon()
+        getPokemon();
     },[])
-
 
     useEffect(() => {
         if(reloadPage){
-            getPokemon()
-            setReloadPage(!reloadPage)
+            getPokemon();
+            setReloadPage(!reloadPage);
         }
     },[reloadPage])
 
@@ -121,7 +120,9 @@ export default function PokemonInfo(){
                     </div>
                 </div>
             : <h3>'loading'</h3>}
-            <Link to='/'><BackBtn/></Link>
+            <Link to="/">
+                <BackBtn/>
+            </Link>
         </div>
     )
 }
