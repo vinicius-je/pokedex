@@ -12,7 +12,7 @@ render(
     <div className="logo"></div>
     <Routes>
         <Route path="/" element={<App/>}/>
-      <Route path="/:id" element={<PokemonInfo/>}/>
+        <Route path="/:id" element={<PokemonInfo/>}/>
     </Routes>
   </BrowserRouter>
   </PageProvider>,

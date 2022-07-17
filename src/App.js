@@ -10,52 +10,52 @@ function App() {
     const [previousPage, setPreviousPage] = useState(); 
     const [total, setTotalPages] = useState();
 
-    const [currentPage, setCurrentPage, nextPage, setNextPage, page, setPage] = useContext(PageConext)
+    const [currentPage, setCurrentPage, nextPage, setNextPage, page, setPage] = useContext(PageConext);
 
-    // get pokemon by search value in SerachBar   
+    // Get pokemon by search value in SearchBar   
     async function getPokemonByInput(pokemon){
         try {
             let pokemon_data = await getPokemonData(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-            setPokemon([pokemon_data])
+            setPokemon([pokemon_data]);
         } catch (error) {
-            setPokemon([])   
+            setPokemon([]);
         }
     }
-    // get pokemon list per page
+    // Get pokemon list per page
     async function getPokemonsByPage(page){
         try{
             const pokemonArray = await getPokemonData(page);
 
-            setNextPage(pokemonArray.next)
-            setPreviousPage(pokemonArray.previous)
-            setTotalPages(Math.ceil(pokemonArray.count / 21))
+            setNextPage(pokemonArray.next);
+            setPreviousPage(pokemonArray.previous);
+            setTotalPages(Math.ceil(pokemonArray.count / 21));
 
             const promise = pokemonArray.results.map( async (pokemon) => {
-            return await getPokemonData(pokemon.url)
+                return await getPokemonData(pokemon.url);
             })
-            const pokemonData = await Promise.all(promise)
-            setPokemon(pokemonData)
+            const pokemonData = await Promise.all(promise);
+            setPokemon(pokemonData);
         }catch(error){
-            console.log(error)
+            console.log(error);
         }
     }
 
     function loadNextPage(){
-        setCurrentPage(nextPage || currentPage)
-        getPokemonsByPage(nextPage || currentPage)
-        setPage(num => num === 54 ? num = 54 : num + 1)
-        window.scrollTo(0, 0)
+        setCurrentPage(nextPage || currentPage);
+        getPokemonsByPage(nextPage || currentPage);
+        setPage(num => num === 54 ? num = 54 : num + 1);
+        window.scrollTo(0, 0);
     }
 
     function loadPreviousPage(){
-        setCurrentPage(previousPage || currentPage)
-        getPokemonsByPage(previousPage || currentPage)
-        setPage(num => num === 1 ? num = 1 : num - 1)
-        window.scrollTo(0, 0)
+        setCurrentPage(previousPage || currentPage);
+        getPokemonsByPage(previousPage || currentPage);
+        setPage(num => num === 1 ? num = 1 : num - 1);
+        window.scrollTo(0, 0);
     }
 
     useEffect(() => {
-        getPokemonsByPage(currentPage)
+        getPokemonsByPage(currentPage);
     }, [])
 
   return (
